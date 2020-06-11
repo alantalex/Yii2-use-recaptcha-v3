@@ -4,17 +4,18 @@ One example of how to enable user verification in Yii2 framework.
 
 1) In the form in the form, create a hidden token field.
 
-<pre>    
- 	<!-- <input type="hidden" id="token" name="token" /> -->
-</pre>
+    
+/**
+* 	<input type="hidden" id="token" name="token" />
+*/
 
 2) When you click on submit, we make a request for a token to the API 
 recaptcha. The response is written in the token field. We submit the form already 
 with the token to the AJAX server request.
 
-<pre>    
-	<!-- <button class="btn btn-primary" onclick="submitForm()">Submit</button> -->
-</pre>    
+/**
+*   <button class="btn btn-primary" onclick="submitForm()">Submit</button> -->
+*/
 
 <pre>    
 	<script>
