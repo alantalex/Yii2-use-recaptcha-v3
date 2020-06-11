@@ -5,7 +5,7 @@ One example of how to enable user verification in Yii2 framework.
 1) In the form in the form, create a hidden token field.
 
 <pre>    
-<input type="hidden" id="token" name="token" />
+ 	<!-- <input type="hidden" id="token" name="token" /> -->
 </pre>
 
 2) When you click on submit, we make a request for a token to the API 
@@ -13,7 +13,7 @@ recaptcha. The response is written in the token field. We submit the form alread
 with the token to the AJAX server request.
 
 <pre>    
-	<button class="btn btn-primary" onclick="submitForm()">Submit</button>
+	<!-- <button class="btn btn-primary" onclick="submitForm()">Submit</button> -->
 </pre>    
 
 <pre>    
@@ -59,6 +59,7 @@ with the token to the AJAX server request.
 
 4) If successful, we accept and save the form data.
 
+<pre>    
 	if ($data['success']) {
     	if ($order->save()) {
     		// Return success operation
@@ -68,3 +69,4 @@ with the token to the AJAX server request.
 		// User is Bot !
 		return ['result'=> false, 'message' => $data];
 	}
+</pre>    
