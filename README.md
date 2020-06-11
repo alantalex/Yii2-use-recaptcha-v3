@@ -4,14 +4,19 @@ One example of how to enable user verification in Yii2 framework.
 
 1) In the form in the form, create a hidden token field.
 
-    <input type="hidden" id="token" name="token" />
+<pre>    
+<input type="hidden" id="token" name="token" />
+</pre>
 
 2) When you click on submit, we make a request for a token to the API 
 recaptcha. The response is written in the token field. We submit the form already 
 with the token to the AJAX server request.
 
+<pre>    
 	<button class="btn btn-primary" onclick="submitForm()">Submit</button>
+</pre>    
 
+<pre>    
 	<script>
 	const submitForm = () => {
 		grecaptcha.execute('YOUR_SECRET_KEY_GOOGLE_API_RECAPTCHA', {action: 'checkUser'})
@@ -42,12 +47,15 @@ with the token to the AJAX server request.
 		})
 	}
 	</script>
+</pre>    
 
 3) In the controller, we make a request for user verification.
 
+<pre>    
 	$secretKey = 'YOUR_SECRET_KEY_GOOGLE_API_RECAPTCHA';
 	$result = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$_POST['token'].'&remoteip='.$_SERVER['REMOTE_ADDR']);
 	$data = json_decode($result, TRUE);
+</pre>    
 
 4) If successful, we accept and save the form data.
 
